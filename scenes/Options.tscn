@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Options.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.5
+offset_top = -34.0
+offset_right = 92.5
+offset_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MuteButton" type="Button" parent="VBoxContainer"]
+offset_right = 185.0
+offset_bottom = 20.0
+focus_neighbor_top = NodePath("../VolverButton")
+text = "Quitar música"
+
+[node name="HighVolumeButton" type="Button" parent="VBoxContainer"]
+offset_top = 24.0
+offset_right = 185.0
+offset_bottom = 44.0
+text = "Música normal"
+
+[node name="LowVolumeButton" type="Button" parent="VBoxContainer"]
+offset_top = 48.0
+offset_right = 185.0
+offset_bottom = 68.0
+text = "Música baja"
+
+[node name="MuteSFXButton" type="Button" parent="VBoxContainer"]
+offset_top = 72.0
+offset_right = 185.0
+offset_bottom = 92.0
+text = "Quitar SFX"
+
+[node name="VolverButton" type="Button" parent="VBoxContainer"]
+offset_top = 96.0
+offset_right = 185.0
+offset_bottom = 116.0
+focus_neighbor_bottom = NodePath("../MuteButton")
+text = "Volver"
+
+[connection signal="pressed" from="VBoxContainer/MuteButton" to="." method="_on_MuteButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HighVolumeButton" to="." method="_on_HighVolumeButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/LowVolumeButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MuteSFXButton" to="." method="_on_MuteSFXButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VolverButton" to="." method="_on_VolverButton_pressed"]
